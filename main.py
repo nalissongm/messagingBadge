@@ -61,9 +61,13 @@ def main():
       print("<--------------->")
       print("🎯 " + prof["Nome completo"])
 
+      arrName = str(prof["Nome completo"]).split(sep=" ")
+
+      shortname = "{name} {lastname}".format(name=arrName[0], lastname=arrName[1])
+
       try:
         send_message(
-          [messages[0].format(name=prof["Nome completo"]), messages[1], messages[2]], 
+          [messages[0].format(name=shortname), messages[1], messages[2]], 
           phone="+55{phone}".format(phone=phone)
         )
 
